@@ -1,10 +1,16 @@
+import 'package:Checker/program/program_result.dart';
 import 'package:flutter/material.dart';
 
-class buildResult extends StatelessWidget {
+class buildResult extends StatefulWidget {
   const buildResult({
     Key key,
   }) : super(key: key);
 
+  @override
+  _buildResultState createState() => _buildResultState();
+}
+
+class _buildResultState extends State<buildResult> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +40,7 @@ class buildResult extends StatelessWidget {
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  "17 Agustus 1997",
+                  "${now.day}" + "-" + "${now.month}" + "-" + "${now.year}",
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
                 ),
                 Text(
