@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types
 class buildStopwatch extends StatefulWidget {
   @override
   _buildStopwatchState createState() => _buildStopwatchState();
 }
 
+// ignore: camel_case_types
 class _buildStopwatchState extends State<buildStopwatch> {
   bool startpressed = true;
   bool stoppressed = true;

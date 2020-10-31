@@ -1,9 +1,35 @@
+// import 'dart:wasm';
+
+import 'package:Checker/program/program_result.dart';
 import 'package:flutter/material.dart';
 
-class buildInput extends StatelessWidget {
+class buildInput extends StatefulWidget {
   const buildInput({
     Key key,
   }) : super(key: key);
+
+  @override
+  _buildInputState createState() => _buildInputState();
+}
+
+final feed = TextEditingController();
+final percent = TextEditingController();
+final weight = TextEditingController();
+
+double _hasil = 0;
+double get hasil => _hasil;
+
+class _buildInputState extends State<buildInput> {
+  void kan() {
+    setState(() {
+      double mas1 = double.tryParse(feed.text);
+      double mas2 = double.tryParse(percent.text);
+
+      return _hasil = mas1 * mas2 / 100;
+
+      print(_hasil);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +57,7 @@ class buildInput extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 5),
               Text(
-                "DATA CCR",
+                "Data CCR",
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
               SizedBox(height: 18),
@@ -40,6 +66,12 @@ class buildInput extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 40, left: 40),
                     child: TextField(
+                      onChanged: (value) {
+                        setState(() {
+                          kan();
+                        });
+                      },
+                      controller: feed,
                       keyboardType: TextInputType.number,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
@@ -49,6 +81,12 @@ class buildInput extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 40, left: 40),
                     child: TextField(
+                      onChanged: (value) {
+                        setState(() {
+                          kan();
+                        });
+                      },
+                      controller: percent,
                       keyboardType: TextInputType.number,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
@@ -59,6 +97,10 @@ class buildInput extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 40, left: 40),
                     child: TextField(
+                      onChanged: (value) {
+                        setState(() {});
+                      },
+                      controller: weight,
                       keyboardType: TextInputType.number,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
@@ -66,6 +108,7 @@ class buildInput extends StatelessWidget {
                           hintStyle: TextStyle(fontSize: 13)),
                     ),
                   ),
+                  Text("")
                 ],
               )
             ],
@@ -92,7 +135,7 @@ class buildInput extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 5),
               Text(
-                "TIMER",
+                "Timer",
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
               SizedBox(height: 18),

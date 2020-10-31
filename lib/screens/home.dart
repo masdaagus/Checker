@@ -37,11 +37,13 @@ class HomeScreen extends StatelessWidget {
                 children: <Widget>[
                   _titleUp(),
                   buildResult(),
-                  _titleDown(),
-                  SizedBox(height: 5),
-                  buildInput(),
+                  // _titleDown(),
+                  // SizedBox(height: 5),
+                  // buildInput(),
                   SizedBox(height: 10),
                   buildStopwatch(),
+                  SizedBox(height: 30)
+                  // Text(feed.text)
                 ],
               ),
             ),
@@ -68,6 +70,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class _titleDown extends StatelessWidget {
   const _titleDown({
     Key key,
@@ -89,6 +92,7 @@ class _titleDown extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class _titleUp extends StatelessWidget {
   const _titleUp({
     Key key,
