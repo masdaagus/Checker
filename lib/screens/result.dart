@@ -1,5 +1,5 @@
 import 'package:Checker/program/program_result.dart';
-import 'package:Checker/screens/input.dart';
+import 'package:Checker/screens/model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -23,17 +23,60 @@ double _setPoint = 0;
 double _avarage = 0;
 double _aktualWf = 0;
 double _error = 0;
-String _plus;
 
 final formater = NumberFormat("##.##");
 
 class _buildResultState extends State<buildResult> {
-  String plus() {
-    if (_error > 0) {
-      _plus = "Plus";
-    } else {
-      _plus = "Minus";
+  // This is for pick the date and the materials
+
+  List<MaterialCemen> _materials = MaterialCemen.getMaterials();
+  List<DropdownMenuItem<MaterialCemen>> _dropdownMenuItems;
+  MaterialCemen _selectedMaterial;
+
+  List<LineMill> _lines = LineMill.getLines();
+  List<DropdownMenuItem<LineMill>> _droplineMenuItems;
+  LineMill _selectedLine;
+
+  @override
+  void initState() {
+    _dropdownMenuItems = buildDropdownMenuItem(_materials);
+    _selectedMaterial = _dropdownMenuItems[0].value;
+    _droplineMenuItems = buildDroplineMenuItem(_lines);
+    _selectedLine = _droplineMenuItems[0].value;
+  }
+
+  List<DropdownMenuItem<MaterialCemen>> buildDropdownMenuItem(List materials) {
+    List<DropdownMenuItem<MaterialCemen>> items = List();
+    for (MaterialCemen material in materials) {
+      items.add(DropdownMenuItem(
+        value: material,
+        child: Text(material.name),
+      ));
     }
+    return items;
+  }
+
+  List<DropdownMenuItem<LineMill>> buildDroplineMenuItem(List lines) {
+    List<DropdownMenuItem<LineMill>> items = List();
+    for (LineMill line in lines) {
+      items.add(DropdownMenuItem(
+        value: line,
+        child: Text(line.name),
+      ));
+    }
+    return items;
+  }
+
+  onChangeDropdownItem(MaterialCemen selectedMaterial) {
+    setState(() {
+      _selectedMaterial = selectedMaterial;
+    });
+  }
+
+  onChangeDroplineItem(LineMill selectedLine) {
+    setState(() {
+      _selectedLine = selectedLine;
+    });
   }
 
   double setPoint() {
@@ -65,7 +108,6 @@ class _buildResultState extends State<buildResult> {
 
   double error() {
     setState(() {
-      plus();
       _error = (_aktualWf - _setPoint) / _setPoint * 100;
     });
   }
@@ -97,7 +139,7 @@ class _buildResultState extends State<buildResult> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      "Line 1",
+                      _selectedLine.name,
                       style:
                           TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
                     ),
@@ -107,13 +149,13 @@ class _buildResultState extends State<buildResult> {
                           TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      "Clinker",
+                      '${_selectedMaterial.name}',
                       style:
                           TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: 17),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -266,7 +308,6 @@ class _buildResultState extends State<buildResult> {
                               avarage();
                               aktualWf();
                               error();
-                              plus();
                             });
                           },
                           controller: feed,
@@ -286,7 +327,6 @@ class _buildResultState extends State<buildResult> {
                               avarage();
                               aktualWf();
                               error();
-                              plus();
                             });
                           },
                           controller: percent,
@@ -306,7 +346,6 @@ class _buildResultState extends State<buildResult> {
                               avarage();
                               aktualWf();
                               error();
-                              plus();
                             });
                           },
                           controller: weight,
@@ -317,7 +356,6 @@ class _buildResultState extends State<buildResult> {
                               hintStyle: TextStyle(fontSize: 13)),
                         ),
                       ),
-                      Text("")
                     ],
                   )
                 ],
@@ -359,7 +397,6 @@ class _buildResultState extends State<buildResult> {
                               avarage();
                               aktualWf();
                               error();
-                              plus();
                             });
                           },
                           controller: timer1,
@@ -379,7 +416,6 @@ class _buildResultState extends State<buildResult> {
                               avarage();
                               aktualWf();
                               error();
-                              plus();
                             });
                           },
                           controller: timer2,
@@ -399,7 +435,6 @@ class _buildResultState extends State<buildResult> {
                               avarage();
                               aktualWf();
                               error();
-                              plus();
                             });
                           },
                           controller: timer3,
@@ -415,6 +450,24 @@ class _buildResultState extends State<buildResult> {
                 ],
               ),
             ),
+          ],
+        ),
+        SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            DropdownButton(
+              style: TextStyle(fontSize: 12, color: Colors.black),
+              items: _droplineMenuItems,
+              onChanged: onChangeDroplineItem,
+              value: _selectedLine,
+            ),
+            DropdownButton(
+              style: TextStyle(fontSize: 12, color: Colors.black),
+              items: _dropdownMenuItems,
+              onChanged: onChangeDropdownItem,
+              value: _selectedMaterial,
+            )
           ],
         )
       ],

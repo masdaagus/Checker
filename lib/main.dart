@@ -1,5 +1,5 @@
 import 'package:Checker/screens/home.dart';
-import 'package:Checker/screens/input.dart';
+// import 'package:Checker/program/input.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -3,8 +3,6 @@ import 'package:Checker/screens/stopwatch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'input.dart';
-
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -37,9 +35,6 @@ class HomeScreen extends StatelessWidget {
                 children: <Widget>[
                   _titleUp(),
                   buildResult(),
-                  // _titleDown(),
-                  // SizedBox(height: 5),
-                  // buildInput(),
                   SizedBox(height: 10),
                   buildStopwatch(),
                   SizedBox(height: 30)
@@ -70,29 +65,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// ignore: camel_case_types
-class _titleDown extends StatelessWidget {
-  const _titleDown({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // margin: EdgeInsets.only(top: 288), // default is 260
-      height: 30,
-      decoration: BoxDecoration(
-          color: Colors.blueGrey[800],
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(100),
-              topRight: Radius.circular(100),
-              bottomLeft: Radius.circular(10),
-              bottomRight: Radius.circular(10))),
-    );
-  }
-}
-
-// ignore: camel_case_types
 class _titleUp extends StatelessWidget {
   const _titleUp({
     Key key,
