@@ -83,7 +83,7 @@ class _titleUp extends StatelessWidget {
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   letterSpacing: 3,
-                  color: Colors.white70),
+                  color: Colors.grey),
             ),
           ),
         ],

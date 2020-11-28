@@ -277,6 +277,12 @@ class _buildResultState extends State<buildResult> {
           ),
         ),
         Container(
+          child: Center(
+            child: Text(
+              'Devolved By Group A Production',
+              style: TextStyle(fontSize: 10, color: Colors.grey),
+            ),
+          ),
           // margin: EdgeInsets.only(top: 288), // default is 260
           height: 30,
           decoration: BoxDecoration(

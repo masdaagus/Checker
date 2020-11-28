@@ -5,9 +5,9 @@ class MaterialCemen {
 
   static List<MaterialCemen> getMaterials() {
     return <MaterialCemen>[
-      MaterialCemen('Gypsum'),
       MaterialCemen('Clinker'),
       MaterialCemen('Trass'),
+      MaterialCemen('Gypsum'),
       MaterialCemen('Limestone'),
     ];
   }
