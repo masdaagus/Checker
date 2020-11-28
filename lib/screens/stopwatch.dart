@@ -87,31 +87,44 @@ class _buildStopwatchState extends State<buildStopwatch> {
           children: <Widget>[
             RaisedButton(
               onPressed: resetpressed ? null : resetstopwatch,
-              color: Colors.blue[200],
-              padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
+              color: Color(0xFFB0BEC5),
+              padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 10.0),
               child: Text(
                 "Reset",
                 style: TextStyle(color: Colors.blueGrey[600], fontSize: 15),
               ),
+              textColor: Colors.white,
+              splashColor: Colors.white,
+              elevation: 0.20,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
             ),
             RaisedButton(
-              onPressed: stoppressed ? null : stopstopwatch,
-              color: Colors.blue[200],
-              padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
-              child: Text(
-                "Stop",
-                style: TextStyle(color: Colors.blueGrey[600], fontSize: 15),
-              ),
-            ),
+                onPressed: stoppressed ? null : stopstopwatch,
+                color: Color(0xFFB0BEC5),
+                splashColor: Colors.white,
+                elevation: 0.20,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 10.0),
+                child: Text(
+                  "Stop",
+                  style: TextStyle(color: Colors.blueGrey[600], fontSize: 15),
+                ),
+                textColor: Colors.white),
             RaisedButton(
-              onPressed: startpressed ? startstopwatch : null,
-              color: Colors.blue[200],
-              padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
-              child: Text(
-                "Start",
-                style: TextStyle(color: Colors.blueGrey[600], fontSize: 15),
-              ),
-            )
+                onPressed: startpressed ? startstopwatch : null,
+                color: Color(0xFFB0BEC5),
+                splashColor: Colors.white,
+                elevation: 0.20,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 10.0),
+                child: Text(
+                  "Start",
+                  style: TextStyle(color: Colors.blueGrey[600], fontSize: 15),
+                ),
+                textColor: Colors.white)
           ],
         )
       ],

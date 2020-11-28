@@ -138,20 +138,39 @@ class _buildResultState extends State<buildResult> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      _selectedLine.name,
-                      style:
-                          TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                    Expanded(
+                      flex: 1,
+                      child: Center(
+                        child: Text(
+                          _selectedLine.name,
+                          style: TextStyle(
+                              fontSize: 10, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
-                    Text(
-                      "${now.day}" + "-" + "${now.month}" + "-" + "${now.year}",
-                      style:
-                          TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                    Expanded(
+                      flex: 2,
+                      child: Center(
+                        child: Text(
+                          "${now.day}" +
+                              "-" +
+                              "${now.month}" +
+                              "-" +
+                              "${now.year}",
+                          style: TextStyle(
+                              fontSize: 10, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
-                    Text(
-                      '${_selectedMaterial.name}',
-                      style:
-                          TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                    Expanded(
+                      flex: 1,
+                      child: Center(
+                        child: Text(
+                          '${_selectedMaterial.name}',
+                          style: TextStyle(
+                              fontSize: 10, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -452,7 +471,6 @@ class _buildResultState extends State<buildResult> {
             ),
           ],
         ),
-        SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
